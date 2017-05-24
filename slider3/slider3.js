@@ -34,33 +34,52 @@ function hasClass(num,classname){
 function init(preTag,nextTag,before){
   set(preTag,'middle');
   set(nextTag,'right');
+  console.log('change');
 }
 
 function move(preTag,nextTag){
   set(preTag,'move');
   set(nextTag,'middle');
+  console.log('move'+count);
 };
-
 function setright(itemTag){
     removeClass(itemTag,'middle');
     removeClass(itemTag,'move');
     set(itemTag,'right');
+    console.log('end'+count);
+    count = count -1;
+    if(!count == -1){
+        start();
+    }
+  }
+
+var count = 2;
+var i = 0;
+function start(){
+  // if(count = 0){
+  //     setTimeout("init(count,itemTag)",0+1600*i);
+  //     setTimeout("move(count,itemTag)",300+1600*i);
+  //     setTimeout("setright(count+1)",1300+1600*i);
+  // }
+  setTimeout("init(count,count-1)",0+1600*i);
+  setTimeout("move(count,count-1)",300+1600*i);
+  setTimeout("setright(count)",1300+1600*i);
+  // return true;
 }
-  setTimeout("init(itemTag,itemTag-1,itemTag+1)",0);
-  setTimeout("move(itemTag,itemTag-1)",300);
-  setTimeout("setright(itemTag)",1300);
+start();
 
-  setTimeout("init(itemTag-1,itemTag-2,itemTag)",1600);
-  setTimeout("move(itemTag-1,itemTag-2)",1900);
-  setTimeout("setright(itemTag-1)",2900);
 
-  setTimeout("init(itemTag-2,itemTag,itemTag-1)",3200);
-  setTimeout("move(itemTag-2,itemTag)",3500);
-  setTimeout("setright(itemTag-2)",4500);
 
-  setTimeout("init(itemTag,itemTag-1,itemTag+1)",4800);
-  setTimeout("move(itemTag,itemTag-1)",5100);
-  setTimeout("setright(itemTag)",6400);
+//
+//   setTimeout("init(itemTag-1,itemTag-2,itemTag)",1600);
+//   setTimeout("move(itemTag-1,itemTag-2)",1900);
+//   setTimeout("setright(itemTag-1)",2900);
+//
+
+//
+//   setTimeout("init(itemTag,itemTag-1,itemTag+1)",4800);
+//   setTimeout("move(itemTag,itemTag-1)",5100);
+//   setTimeout("setright(itemTag)",6400);
 
   // setTimeout("init(itemTag-1,itemTag-2,itemTag)",1600);
   // setTimeout("move(itemTag-1,itemTag-2)",1900);
