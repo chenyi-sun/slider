@@ -4,7 +4,6 @@ var right = document.getElementsByClassName('right')[0];
 var i = 0;
 var change = 1;
 var sliderLength = slider.length;
-slider[0].__proto__.classN = 
 slider[0].__proto__.addClass = function(items){
 if(this.className.indexOf(items) == -1){
     this.className = this.className+' '+items;
