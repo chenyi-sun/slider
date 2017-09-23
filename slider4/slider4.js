@@ -3,7 +3,7 @@ var left = document.getElementsByClassName('left')[0];
 var right = document.getElementsByClassName('right')[0];
 var i = 0;
 var sliderLength = slider.length;
-slider[0].__proto__.classN = 
+// slider[0].__proto__.classN = 
 slider[0].__proto__.addClass = function(items){
 
   if(this.className.indexOf(items) == -1){
