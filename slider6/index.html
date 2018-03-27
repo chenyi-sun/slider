@@ -5,7 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<style>
+    .box{
+        width: 600px;
+        height: 500px;
+        background: grey;
+        position: absolute;
+        left: 50%;
+        overflow: hidden;
+        margin-left: -300px;
+    }
+    .box .in{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        left: 0px;
+        top: 0px;
+        display: inline-block;
+        transition: opacity ease-in 0.3s;
+    }
+    .in img{
+        width: 100%;
+        height: 100%;
+    }
+    .remove{
+        opacity: 0;
+        z-index: -2;
+    }
+    .add{
+        opacity: 1;
+        z-index: 1;
+    }
+</style>
 <body>
-    
+    <div class="box">
+        <div class="in">
+            <img src="imgs/1.jpg"/>
+        </div>
+        <div class="in">
+            <img src="imgs/2.jpg"/>
+        </div>
+        <div class="in">
+            <img src="imgs/3.jpg"/>
+        </div>
+        <div class="in">
+            <img src="imgs/4.jpg"/>
+        </div>
+        <div class="in">
+            <img src="imgs/5.jpg"/>
+        </div>
+    </div>
 </body>
+<script>
+    var i = 0;
+    var ins = document.getElementsByClassName('in');
+    setInterval(function(){
+    //     document.getElementsByClassName('in')[i].addClass('remove');
+    //     document.getElementsByClassName('in')[i+1].addClass('add');
+        ins[i].className = "in remove"
+        ins[i+1].className = "in add"
+        i = i + 1;
+        if(i==4){
+            i = 0;
+        }
+    }, 2000);
+</script>
 </html>
