@@ -8,6 +8,7 @@ let setSlider = {
         sliderLength: 0, //图片的长度
         stopTime: 1200,
         timePicker: null, //setInterval时间选择器
+        timeOutPicker: null, //setTimeout时间选择器
     },
     imgs: [
         './imgs/1.png',
@@ -25,8 +26,8 @@ let setSlider = {
         this.date.initDom.innerHTML = sliders;
         this.date.sliderLength = this.imgs.length;
     },
-    setImgsLoop(){ //设置前面一张图片移动到底部
-        
+    setImgsLoop(num){ //设置前面一张图片移动到底部
+        console.log(num);
     },
     setLeft(num){
         const self = this;
@@ -38,13 +39,16 @@ let setSlider = {
             if(left == self.date.sliderWidth * (self.date.indexNum+1)){
                 self.setImgLeft(left);
                 clearInterval(self.date.timePicker);
-                setTimeout(function(){
+                self.date.timePicker = null;
+                self.date.timeOutPicker = setTimeout(function(){
                     if(self.date.indexNum < self.date.sliderLength-2){
                         self.date.indexNum = self.date.indexNum + 1;
                     }
                     if(num < self.date.sliderLength-2){
                         self.setLeft(self.date.indexNum);
                     }
+                    clearTimeout(self.date.timeOutPicker);
+                    self.date.timeOutPicker = null;
                 }, self.date.stopTime);
             }
             self.setImgLeft(left);
